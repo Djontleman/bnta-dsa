@@ -33,20 +33,15 @@ public class Main {
 
     //  || ======== Part 3 ======== ||
     public static int linearSearch(int[] arr, int key) {
-        if (key < arr[0] || key > arr[arr.length - 1]) {
-            System.out.println("Key outside of array");
-            return 0;
-        } else {
-            int numberOfSteps = 0;
+        int numberOfSteps = 0;
 
-            for (int num : arr) {
-                numberOfSteps++;
-                if (num == key) {
-                    break;
-                }
+        for (int num : arr) {
+            numberOfSteps++;
+            if (num == key) {
+                break;
             }
-            return numberOfSteps;
         }
+        return numberOfSteps;
     }
 
     //  || ======== Extension ======== ||
@@ -111,10 +106,6 @@ public class Main {
 
         int mid1 = l + (r - l) / 3;
         int mid2 = r - (r - l) / 3;
-
-//        else if (arr[l] > key) {
-//            return TernarySearchModule(l, r, arr, key, numberOfSteps);
-//        }
 
         if (arr[mid1] > key) {
             return ternarySearchModule(l, mid1 -1, arr, key, numberOfSteps);
