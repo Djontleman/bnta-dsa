@@ -5,20 +5,60 @@ import java.util.Arrays;
 public class Day1Main {
 
     public static void main(String[] args) {
-        int testNumber = 25;
+        int testNumber = 100000;
 
         int[] arrayOfNumbers = generateArray(testNumber);
         int key = generateKey(testNumber);
-        System.out.println("Array: " + Arrays.toString(arrayOfNumbers));
-        System.out.println("Key: " + key);
+
+        System.out.println("|| ========= DSA Day 1 Tasks ========= ||");
         System.out.println();
-        System.out.println("Number of steps");
-        System.out.println("Linear Search: " + linearSearch(arrayOfNumbers, key));
-        System.out.println("Jump Search: " + jumpSearch(arrayOfNumbers, key, 3));
-        System.out.println("Binary Search (Recursive): " + binarySearchRecursive(arrayOfNumbers, key));
-        System.out.println("Binary Search (Iterative): " + binarySearchIterative(arrayOfNumbers, key));
-        System.out.println("Ternary Search (Recursive): " + ternarySearchRecursive(arrayOfNumbers, key));
-        System.out.println("Ternary Search (Iterative): " + ternarySearchIterative(arrayOfNumbers, key));
+//        System.out.println("Array: " + Arrays.toString(arrayOfNumbers));
+        System.out.println("Key to find: " + key);
+        System.out.println();
+        System.out.println("|| ========= Search Algorithms ========= ||");
+        System.out.println();
+
+        long startTime = System.nanoTime();
+        System.out.println("Linear Search: " + linearSearch(arrayOfNumbers, key) + " steps");
+        long stopTime = System.nanoTime();
+        long timeTaken = (stopTime - startTime)/ 10000;
+        System.out.println("Time taken: " + timeTaken + " milliseconds");
+        System.out.println();
+
+        startTime = System.nanoTime();
+        System.out.println("Jump Search: " + jumpSearch(arrayOfNumbers, key, 3) + " steps");
+        stopTime = System.nanoTime();
+        timeTaken = (stopTime - startTime)/ 10000;
+        System.out.println("Time taken: " + timeTaken + " milliseconds");
+        System.out.println();
+
+        startTime = System.nanoTime();
+        System.out.println("Binary Search (Recursive): " + binarySearchRecursive(arrayOfNumbers, key) + " steps");
+        stopTime = System.nanoTime();
+        timeTaken = (stopTime - startTime)/ 100;
+        System.out.println("Time taken: " + timeTaken + " microseconds");
+        System.out.println();
+
+        startTime = System.nanoTime();
+        System.out.println("Binary Search (Iterative): " + binarySearchIterative(arrayOfNumbers, key) + " steps");
+        stopTime = System.nanoTime();
+        timeTaken = (stopTime - startTime)/ 100;
+        System.out.println("Time taken: " + timeTaken + " microseconds");
+        System.out.println();
+
+        startTime = System.nanoTime();
+        System.out.println("Ternary Search (Recursive): " + ternarySearchRecursive(arrayOfNumbers, key) + " steps");
+        stopTime = System.nanoTime();
+        timeTaken = (stopTime - startTime)/ 100;
+        System.out.println("Time taken: " + timeTaken + " microseconds");
+        System.out.println();
+
+        startTime = System.nanoTime();
+        System.out.println("Ternary Search (Iterative): " + ternarySearchIterative(arrayOfNumbers, key) + " steps");
+        stopTime = System.nanoTime();
+        timeTaken = (stopTime - startTime)/ 100;
+        System.out.println("Time taken: " + timeTaken + " microseconds");
+        System.out.println();
     }
 
     //  || ======== Part 1 ======== ||
