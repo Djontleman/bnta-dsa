@@ -2,7 +2,7 @@ package com.djontleman.day1;
 
 import java.util.Arrays;
 
-public class Main {
+public class Day1Main {
 
     public static void main(String[] args) {
         int testNumber = 25;
