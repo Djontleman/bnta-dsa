@@ -15,7 +15,8 @@ public class Main {
         System.out.println("Number of steps");
         System.out.println("Linear Search: " + linearSearch(arrayOfNumbers, key));
         System.out.println("Jump Search: " + jumpSearch(arrayOfNumbers, key, 3));
-        System.out.println("Ternary Search: " + ternarySearch(arrayOfNumbers, key));
+        System.out.println("Ternary Search (Recursive): " + ternarySearchRecursive(arrayOfNumbers, key));
+        System.out.println("Ternary Search (Iterative): " + ternarySearchIterative(arrayOfNumbers, key));
     }
 
     //  || ======== Part 1 ======== ||
@@ -92,7 +93,7 @@ public class Main {
 
     // | ------- Ternary Search ------- |
 
-    public static int ternarySearch(int[] arr, int key) {
+    public static int ternarySearchRecursive(int[] arr, int key) {
         int numberOfSteps = 0;
 
         int l = 0;
@@ -127,7 +128,36 @@ public class Main {
             return ternarySearchModule(mid2 + 1, r, arr, key, numberOfSteps);
         }
 
-        return 0;
+        return numberOfSteps;
+    }
+
+    public static int ternarySearchIterative(int[] arr, int key) {
+        int numberOfSteps = 0;
+
+        int l = 0;
+        int r = arr.length - 1 ;
+
+        while(true) {
+            numberOfSteps++;
+
+            int mid1 = l + (r - l) / 3;
+            int mid2 = r - (r - l) / 3;
+
+            if (arr[mid1] > key) {
+                r = mid1 - 1;
+            } else if (arr[mid1] == key) {
+                return numberOfSteps;
+            } else if (arr[mid1] < key && key < arr[mid2]) {
+                l = mid1 + 1;
+                r = mid2 - 1;
+            } else if (arr[mid2] == key) {
+                return numberOfSteps;
+            } else if (arr[mid2] < key) {
+                l = mid2 + 1;
+            } else {
+                return numberOfSteps;
+            }
+        }
     }
 }
 
