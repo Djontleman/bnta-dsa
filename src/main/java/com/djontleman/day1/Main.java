@@ -110,25 +110,17 @@ public class Main {
 
         if (arr[mid1] > key) {
             return ternarySearchModule(l, mid1 -1, arr, key, numberOfSteps);
-        }
-
-        numberOfSteps++;
-
-        if (arr[mid1] == key) {
+        } else if (arr[mid1] == key) {
             return numberOfSteps;
         } else if (arr[mid1] < key && key < arr[mid2] ) {
             return ternarySearchModule(mid1 + 1, mid2 - 1, arr, key, numberOfSteps);
-        }
-
-        numberOfSteps++;
-
-        if (arr[mid2] == key) {
+        } else if (arr[mid2] == key) {
             return numberOfSteps;
         } else if (arr[mid2] < key) {
             return ternarySearchModule(mid2 + 1, r, arr, key, numberOfSteps);
+        } else {
+            return numberOfSteps;
         }
-
-        return numberOfSteps;
     }
 
     public static int ternarySearchIterative(int[] arr, int key) {
