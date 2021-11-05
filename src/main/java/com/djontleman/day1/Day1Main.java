@@ -62,7 +62,7 @@ public class Day1Main {
     }
 
     //  || ======== Part 1 ======== ||
-    public static int[] generateArray(int N) {
+    private static int[] generateArray(int N) {
         int[] arrayOfNumbers = new int[N];
         for (int i = 0; i < N; i++)
             arrayOfNumbers[i] = i + 1;
@@ -70,12 +70,12 @@ public class Day1Main {
     }
 
     //  || ======== Part 2 ======== ||
-    public static int generateKey(int N) {
+    private static int generateKey(int N) {
         return (int)(Math.random() * N) + 1;
     }
 
     //  || ======== Part 3 ======== ||
-    public static int linearSearch(int[] arr, int key) {
+    private static int linearSearch(int[] arr, int key) {
         int numberOfSteps = 0;
 
         for (int num : arr) {
@@ -90,7 +90,7 @@ public class Day1Main {
     //  || ======== Extension ======== ||
 
     // | ------- Jump Search ------- |
-    public static int jumpSearch(int[] arr, int key, int jump) {
+    private static int jumpSearch(int[] arr, int key, int jump) {
         int numberOfSteps = 0;
 
         int previousIndex = -1;
@@ -135,7 +135,7 @@ public class Day1Main {
 
     // | ------- Binary Search ------- |
 
-    public static int binarySearchRecursive(int[] arr, int key) {
+    private static int binarySearchRecursive(int[] arr, int key) {
         int numberOfSteps = 0;
 
         int low = 0;
@@ -144,7 +144,7 @@ public class Day1Main {
         return binarySearchModule(arr, key, low, high, numberOfSteps);
     }
 
-    public static int binarySearchModule(int[] arr, int key, int low, int high, int numberOfSteps) {
+    private static int binarySearchModule(int[] arr, int key, int low, int high, int numberOfSteps) {
         numberOfSteps++;
 
         int mid = (high + low) / 2;
@@ -161,7 +161,7 @@ public class Day1Main {
         }
     }
 
-    public static int binarySearchIterative(int[] arr, int key) {
+    private static int binarySearchIterative(int[] arr, int key) {
         int numberOfSteps = 0;
 
         int low = 0;
@@ -185,7 +185,7 @@ public class Day1Main {
 
     // | ------- Ternary Search ------- |
 
-    public static int ternarySearchRecursive(int[] arr, int key) {
+    private static int ternarySearchRecursive(int[] arr, int key) {
         int numberOfSteps = 0;
 
         int l = 0;
@@ -215,7 +215,7 @@ public class Day1Main {
         }
     }
 
-    public static int ternarySearchIterative(int[] arr, int key) {
+    private static int ternarySearchIterative(int[] arr, int key) {
         int numberOfSteps = 0;
 
         int l = 0;
