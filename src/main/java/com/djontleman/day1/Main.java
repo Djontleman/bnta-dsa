@@ -7,19 +7,19 @@ public class Main {
     public static void main(String[] args) {
         int testNumber = 25;
 
-        int[] arrayOfNumbers = GenerateArray(testNumber);
-        int key = GenerateKey(testNumber);
+        int[] arrayOfNumbers = generateArray(testNumber);
+        int key = generateKey(testNumber);
         System.out.println("Array: " + Arrays.toString(arrayOfNumbers));
         System.out.println("Key: " + key);
         System.out.println();
         System.out.println("Number of steps");
-        System.out.println("Linear Search: " + LinearSearch(arrayOfNumbers, key));
-        System.out.println("Jump Search: " + JumpSearch(arrayOfNumbers, key, 3));
-        System.out.println("Ternary Search: " + TernarySearch(arrayOfNumbers, key));
+        System.out.println("Linear Search: " + linearSearch(arrayOfNumbers, key));
+        System.out.println("Jump Search: " + jumpSearch(arrayOfNumbers, key, 3));
+        System.out.println("Ternary Search: " + ternarySearch(arrayOfNumbers, key));
     }
 
     //  || ======== Part 1 ======== ||
-    public static int[] GenerateArray(int N) {
+    public static int[] generateArray(int N) {
         int[] arrayOfNumbers = new int[N];
         for (int i = 0; i < N; i++)
             arrayOfNumbers[i] = i + 1;
@@ -27,12 +27,12 @@ public class Main {
     }
 
     //  || ======== Part 2 ======== ||
-    public static int GenerateKey(int N) {
+    public static int generateKey(int N) {
         return (int)(Math.random() * N) + 1;
     }
 
     //  || ======== Part 3 ======== ||
-    public static int LinearSearch(int[] arr, int key) {
+    public static int linearSearch(int[] arr, int key) {
         if (key < arr[0] || key > arr[arr.length - 1]) {
             System.out.println("Key outside of array");
             return 0;
@@ -52,7 +52,7 @@ public class Main {
     //  || ======== Extension ======== ||
 
     // | ------- Jump Search ------- |
-    public static int JumpSearch(int[] arr, int key, int jump) {
+    public static int jumpSearch(int[] arr, int key, int jump) {
         int numberOfSteps = 0;
 
         int previousIndex = -1;
@@ -97,16 +97,16 @@ public class Main {
 
     // | ------- Ternary Search ------- |
 
-    public static int TernarySearch(int[] arr, int key) {
+    public static int ternarySearch(int[] arr, int key) {
         int numberOfSteps = 0;
 
         int l = 0;
         int r = arr.length - 1 ;
 
-        return TernarySearchModule(l, r, arr, key, numberOfSteps);
+        return ternarySearchModule(l, r, arr, key, numberOfSteps);
     }
 
-    private static int TernarySearchModule(int l, int r, int[] arr, int key, int numberOfSteps) {
+    private static int ternarySearchModule(int l, int r, int[] arr, int key, int numberOfSteps) {
         numberOfSteps++;
 
         int mid1 = l + (r - l) / 3;
@@ -117,7 +117,7 @@ public class Main {
 //        }
 
         if (arr[mid1] > key) {
-            return TernarySearchModule(l, mid1 -1, arr, key, numberOfSteps);
+            return ternarySearchModule(l, mid1 -1, arr, key, numberOfSteps);
         }
 
         numberOfSteps++;
@@ -125,7 +125,7 @@ public class Main {
         if (arr[mid1] == key) {
             return numberOfSteps;
         } else if (arr[mid1] < key && key < arr[mid2] ) {
-            return TernarySearchModule(mid1 + 1, mid2 - 1, arr, key, numberOfSteps);
+            return ternarySearchModule(mid1 + 1, mid2 - 1, arr, key, numberOfSteps);
         }
 
         numberOfSteps++;
@@ -133,7 +133,7 @@ public class Main {
         if (arr[mid2] == key) {
             return numberOfSteps;
         } else if (arr[mid2] < key) {
-            return TernarySearchModule(mid2 + 1, r, arr, key, numberOfSteps);
+            return ternarySearchModule(mid2 + 1, r, arr, key, numberOfSteps);
         }
 
         return 0;
