@@ -15,6 +15,8 @@ public class Day1Main {
         System.out.println("Number of steps");
         System.out.println("Linear Search: " + linearSearch(arrayOfNumbers, key));
         System.out.println("Jump Search: " + jumpSearch(arrayOfNumbers, key, 3));
+        System.out.println("Binary Search (Recursive): " + binarySearchRecursive(arrayOfNumbers, key));
+        System.out.println("Binary Search (Iterative): " + binarySearchIterative(arrayOfNumbers, key));
         System.out.println("Ternary Search (Recursive): " + ternarySearchRecursive(arrayOfNumbers, key));
         System.out.println("Ternary Search (Iterative): " + ternarySearchIterative(arrayOfNumbers, key));
     }
@@ -89,6 +91,56 @@ public class Day1Main {
             }
         }
         return numberOfSteps;
+    }
+
+    // | ------- Binary Search ------- |
+
+    public static int binarySearchRecursive(int[] arr, int key) {
+        int numberOfSteps = 0;
+
+        int low = 0;
+        int high = arr.length - 1;
+
+        return binarySearchModule(arr, key, low, high, numberOfSteps);
+    }
+
+    public static int binarySearchModule(int[] arr, int key, int low, int high, int numberOfSteps) {
+        numberOfSteps++;
+
+        int mid = (high + low) / 2;
+        if (arr[mid] == key) {
+            return numberOfSteps;
+        } else if (arr[mid] > key) {
+            high = mid - 1;
+            return binarySearchModule(arr, key, low, high, numberOfSteps);
+        } else if (arr[mid] < key) {
+            low = mid + 1;
+            return binarySearchModule(arr, key, low, high, numberOfSteps);
+        } else {
+            return numberOfSteps;
+        }
+    }
+
+    public static int binarySearchIterative(int[] arr, int key) {
+        int numberOfSteps = 0;
+
+        int low = 0;
+        int high = arr.length - 1;
+
+        while(true) {
+            numberOfSteps++;
+
+            int mid = (high + low) / 2;
+            if (arr[mid] == key) {
+                return numberOfSteps;
+            } else if (arr[mid] > key) {
+                high = mid - 1;
+            } else if (arr[mid] < key) {
+                low = mid + 1;
+            } else {
+                return numberOfSteps;
+            }
+        }
     }
 
     // | ------- Ternary Search ------- |
