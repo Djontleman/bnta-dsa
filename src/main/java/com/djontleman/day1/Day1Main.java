@@ -21,42 +21,42 @@ public class Day1Main {
         long startTime = System.nanoTime();
         System.out.println("Linear Search: " + linearSearch(arrayOfNumbers, key) + " steps");
         long stopTime = System.nanoTime();
-        long timeTaken = (stopTime - startTime)/ 10000;
-        System.out.println("Time taken: " + timeTaken + " milliseconds");
+        long timeTaken = (stopTime - startTime) / 1000;
+        System.out.println("Time taken: " + timeTaken + " microseconds");
         System.out.println();
 
         startTime = System.nanoTime();
         System.out.println("Jump Search: " + jumpSearch(arrayOfNumbers, key, 3) + " steps");
         stopTime = System.nanoTime();
-        timeTaken = (stopTime - startTime)/ 10000;
-        System.out.println("Time taken: " + timeTaken + " milliseconds");
+        timeTaken = (stopTime - startTime) / 1000;
+        System.out.println("Time taken: " + timeTaken + " microseconds");
         System.out.println();
 
         startTime = System.nanoTime();
         System.out.println("Binary Search (Recursive): " + binarySearchRecursive(arrayOfNumbers, key) + " steps");
         stopTime = System.nanoTime();
-        timeTaken = (stopTime - startTime)/ 100;
+        timeTaken = (stopTime - startTime) / 1000;
         System.out.println("Time taken: " + timeTaken + " microseconds");
         System.out.println();
 
         startTime = System.nanoTime();
         System.out.println("Binary Search (Iterative): " + binarySearchIterative(arrayOfNumbers, key) + " steps");
         stopTime = System.nanoTime();
-        timeTaken = (stopTime - startTime)/ 100;
+        timeTaken = (stopTime - startTime)/  1000;
         System.out.println("Time taken: " + timeTaken + " microseconds");
         System.out.println();
 
         startTime = System.nanoTime();
         System.out.println("Ternary Search (Recursive): " + ternarySearchRecursive(arrayOfNumbers, key) + " steps");
         stopTime = System.nanoTime();
-        timeTaken = (stopTime - startTime)/ 100;
+        timeTaken = (stopTime - startTime) / 1000;
         System.out.println("Time taken: " + timeTaken + " microseconds");
         System.out.println();
 
         startTime = System.nanoTime();
         System.out.println("Ternary Search (Iterative): " + ternarySearchIterative(arrayOfNumbers, key) + " steps");
         stopTime = System.nanoTime();
-        timeTaken = (stopTime - startTime)/ 100;
+        timeTaken = (stopTime - startTime) / 1000;
         System.out.println("Time taken: " + timeTaken + " microseconds");
         System.out.println();
     }
