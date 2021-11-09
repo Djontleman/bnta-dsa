@@ -22,6 +22,14 @@ public class Day3Task1 {
         System.out.println(Arrays.toString(sortedArray));
         System.out.println();
 
+        System.out.print("Array to be sorted: ");
+        System.out.println(Arrays.toString(generatedArrayToBeSorted));
+
+        int[] selectionSortedArray = selectionSort(generatedArrayToBeSorted);
+        System.out.print("Selection-sorted array: ");
+        System.out.println(Arrays.toString(selectionSortedArray));
+        System.out.println();
+
         System.out.println("|| ================ End ================ ||");
     }
 
@@ -36,6 +44,11 @@ public class Day3Task1 {
 
     // Bubble Sort Algorithm
     static int[] bubbleSort(int[] arr) {
+        int[] demoArray = new int[arr.length];
+        for (int d = 0; d < arr.length; d++) {
+            demoArray[d] = arr[d];
+        }
+
         int numberOfSteps = 0;
         boolean sorted;
 
@@ -45,14 +58,14 @@ public class Day3Task1 {
         do {
             sorted = true;
 
-            for (int i = 0; i < arr.length - 1; i++) {
+            for (int i = 0; i < demoArray.length - 1; i++) {
                 numberOfSteps++;
 
-                int currentElement = arr[i];
-                int nextElement = arr[i + 1];
+                int currentElement = demoArray[i];
+                int nextElement = demoArray[i + 1];
                 if (currentElement > nextElement) {
-                    arr[i] = nextElement;
-                    arr[i + 1] = currentElement;
+                    demoArray[i] = nextElement;
+                    demoArray[i + 1] = currentElement;
 
                     sorted = false;
                 }
@@ -63,6 +76,63 @@ public class Day3Task1 {
 
         System.out.println("Time taken: " + (stopTime - startTime) + " nanoseconds");
         System.out.println("Number of steps: " + numberOfSteps);
-        return arr;
+        return demoArray;
+    }
+
+    // Selection Sort Algorithm
+    // todo: add functionality to break early if array already sorted
+    static int[] selectionSort(int[] arr) {
+        int[] demoArray = new int[arr.length];
+        for (int d = 0; d < arr.length; d++) {
+            demoArray[d] = arr[d];
+        }
+
+        int numberOfSteps = 0;
+        boolean sorted = true;
+
+        int currentElement;
+        int storedComparingElement;
+        int storedComparingElementIndex;
+        int comparingElement;
+
+        System.out.println("Starting selection sort...");
+        long startTime = System.nanoTime();
+
+        for (int i = 0; i < demoArray.length - 1; i++) {
+
+            currentElement = demoArray[i];
+            storedComparingElement = demoArray[i];
+            storedComparingElementIndex = i;
+
+            for (int j = i + 1; j < demoArray.length; j++) {
+                numberOfSteps++;
+
+                comparingElement = demoArray[j];
+
+                if (comparingElement < storedComparingElement) {
+                    storedComparingElement = demoArray[j];
+                    storedComparingElementIndex = j;
+                }
+            }
+
+            if (storedComparingElement < currentElement) {
+                demoArray[i] = storedComparingElement;
+                demoArray[storedComparingElementIndex] = currentElement;
+            }
+
+            // Peeks into the current iteration of the array
+            // Will increase algorithm time
+//            int[] peekArray = new int[demoArray.length];
+//            for (int p = 0; p < demoArray.length; p++) {
+//                peekArray[p] = demoArray[p];
+//            }
+//            System.out.println(Arrays.toString(peekArray));
+        }
+
+        long stopTime = System.nanoTime();
+
+        System.out.println("Time taken: " + (stopTime - startTime) + " nanoseconds");
+        System.out.println("Number of steps: " + numberOfSteps);
+        return demoArray;
     }
 }
