@@ -6,6 +6,10 @@ import java.util.HashMap;
 public class Day3Task3 {
 
     public static void main(String[] args) {
+
+        System.out.println("|| ========= DSA Day 3 Task 3 ========= ||");
+        System.out.println();
+
         int[] arrayToBeTested1 = {2, 7, 11, 15};
         int target1 = 9;
 
@@ -15,8 +19,27 @@ public class Day3Task3 {
         int[] arrayToBeTested3 = {3, 3};
         int target3 = 6;
 
-        System.out.println(Arrays.toString(twoSumLoop(arrayToBeTested1, target1)));
-        System.out.println(Arrays.toString(twoSumHashMap(arrayToBeTested1, target1)));
+        System.out.println("Array to be tested: " + Arrays.toString(arrayToBeTested1));
+        System.out.println("Target: " + target1);
+        System.out.println();
+
+        long startTime = System.nanoTime();
+        int[] twoSumLoopResult = twoSumLoop(arrayToBeTested1, target1);
+        long stopTime = System.nanoTime();
+        System.out.print("twoSumLoop result: ");
+        System.out.println(Arrays.toString(twoSumLoopResult));
+        System.out.println("Time taken: " + (stopTime - startTime) + " nanoseconds");
+        System.out.println();
+
+        startTime = System.nanoTime();
+        int[] twoSumHashMapResult = twoSumHashMap(arrayToBeTested1, target1);
+        stopTime = System.nanoTime();
+        System.out.print("twoSumHashMap result: ");
+        System.out.println(Arrays.toString(twoSumHashMapResult));
+        System.out.println("Time taken: " + (stopTime - startTime) + " nanoseconds");
+        System.out.println();
+
+        System.out.println("|| ================ End ================ ||");
     }
 
     static int[] twoSumLoop(int[] numbers, int target) {
