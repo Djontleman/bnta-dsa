@@ -88,7 +88,6 @@ public class Day3Task1 {
         }
 
         int numberOfSteps = 0;
-        boolean sorted = true;
 
         int currentElement;
         int storedComparingElement;
@@ -99,10 +98,20 @@ public class Day3Task1 {
         long startTime = System.nanoTime();
 
         for (int i = 0; i < demoArray.length - 1; i++) {
+            boolean sorted = true;
 
             currentElement = demoArray[i];
             storedComparingElement = demoArray[i];
             storedComparingElementIndex = i;
+
+            for (int j = 0; j < demoArray.length - 1; j++) {
+                if (demoArray[j] > demoArray[j + 1]) {
+                    sorted = false;
+                }
+            }
+            if (sorted) {
+                break;
+            }
 
             for (int j = i + 1; j < demoArray.length; j++) {
                 numberOfSteps++;
@@ -127,6 +136,7 @@ public class Day3Task1 {
 //                peekArray[p] = demoArray[p];
 //            }
 //            System.out.println(Arrays.toString(peekArray));
+
         }
 
         long stopTime = System.nanoTime();
