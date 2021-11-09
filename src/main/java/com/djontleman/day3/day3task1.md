@@ -10,7 +10,9 @@ Let's analyse and discuss the complexities of the code blocks below:
 int n = 100;
 int[] initialiseArray(int size = n);
 ```
-Complexity = O(1)
+Space Complexity = ?
+
+Time Complexity = O(1)
 as the computer will assign space in the RAM for the array and this will be one action.
 No matter how big the array is, this will be one action.
 
@@ -22,7 +24,9 @@ for (int i=0; i < 9; i++) {
 	System.out.println(i);
 }
 ```
-Complexity = O(1)
+Space Complexity = ?
+
+Time Complexity = O(1)
 as the number of actions will always be the same.
 This code has a complexity of O(9) as there are 9 steps, which normalizes to O(1).
 
@@ -34,7 +38,9 @@ for (int number : array) {
 	System.out.println(number)
 }
 ```
-Complexity = O(N) as one action is taken for each element in the array.
+Space Complexity = ?
+
+Time Complexity = O(N) as one action is taken for each element in the array.
 As the length of the array increases, the number of actions increases by the same amount.
 
 
@@ -48,7 +54,9 @@ for (int i=0; i < 100; i++) {
 	}
 }
 ```
-Complexity = O(N) as for each new element, 100 actions are added.
+Space Complexity = ?
+
+Time Complexity = O(N) as for each new element, 100 actions are added.
 This gives a complexity of O(100N), which normalizes to O(N).
 
 ---
@@ -65,9 +73,26 @@ for (int i=0; i < 100; i++) {
 	System.out.println(r + b);
 }
 ```
-Complexity = O(1) as the number of actions is constant.
+Space Complexity = ?
+
+Time Complexity = O(1) as the number of actions is constant.
 There are 100 * (3 + 4) steps, giving a complexity of O(700),
 which normalizes to O(1).
+
+---
+
+### 6.
+``` java
+String greeting = "Hello world!";
+String upperString = "";
+
+for (char character : greeting) {
+    upperstring += character.toUpper();
+}
+```
+Space Complexity = ?
+
+Time Complexity = ?
 
 ## Homework
 Research and implement the bubble sort algorithm with the optimal space-time complexity in Java for tomorrows lesson.

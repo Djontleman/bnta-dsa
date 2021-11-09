@@ -1,10 +1,10 @@
-package com.djontleman.day2;
+package com.djontleman.day3;
 
 import java.util.Arrays;
 
 import static java.lang.Math.random;
 
-public class Day2Task3 {
+public class Day3Task1 {
 
     public static void main(String[] args) {
 
