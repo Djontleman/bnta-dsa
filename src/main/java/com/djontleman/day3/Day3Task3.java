@@ -15,7 +15,8 @@ public class Day3Task3 {
         int[] arrayToBeTested3 = {3, 3};
         int target3 = 6;
 
-        System.out.println(Arrays.toString(twoSumLoop(arrayToBeTested3, target3)));
+        System.out.println(Arrays.toString(twoSumLoop(arrayToBeTested1, target1)));
+        System.out.println(Arrays.toString(twoSumHashMap(arrayToBeTested1, target1)));
     }
 
     static int[] twoSumLoop(int[] numbers, int target) {
@@ -32,7 +33,19 @@ public class Day3Task3 {
         return new int[0];
     }
 
+    static int[] twoSumHashMap(int[] numbers, int target) {
+        HashMap<Integer, Integer> solutions = new HashMap<>();
 
+        for (int i = 0; i < numbers.length; i++) {
+            if (solutions.containsKey(numbers[i]) && solutions.get(numbers[i]) != i) {
+                return new int[]{solutions.get(numbers[i]), i};
+            }
+            solutions.put(target - numbers[i], i);
+        }
+
+        System.out.println("No solution found");
+        return new int[0];
+    }
 
 
 
